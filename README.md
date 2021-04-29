@@ -1,7 +1,7 @@
 # ClientesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
-Este projeto foi gerado com [Angular CLI] (https://github.com/angular/angular-cli) versão 11.2.10.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.<br />
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 11.2.10.
 
 ## Development server
 
