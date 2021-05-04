@@ -13,7 +13,7 @@ export class AppComponent implements AfterViewInit{
   title = 'clientes-app';
 
   ngAfterViewInit(){
-
+    
     var path = location.pathname;
     
     $('#layoutSidenav_nav .sb-sidenav a.nav-link').each((index:any, element:any) => {
