@@ -21,7 +21,7 @@ export class ClientesListaComponent implements OnInit {
       .subscribe(resposta => this.clientes = resposta);
   }
 
-  novoCadastro(){
+  novoCadastro(): void{
     this.router.navigate(['/clientes-form']);
   }
 

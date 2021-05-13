@@ -26,7 +26,7 @@ export class ClientesFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  voltarParaListagem(){
+  voltarParaListagem(): void {
     this.router.navigate(['/clientes-lista']);
   }
   onSubmit(): void{
