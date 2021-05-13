@@ -13,11 +13,8 @@ export class ClientesService {
   salvar( cliente: Cliente): Observable <Cliente> {
     return this.http.post<Cliente>('http://localhost:8080/api/clientes', cliente);
   }
-  getCliente( ): Cliente {
-    
-    let cliente: Cliente = new Cliente();
-      cliente.nome = 'Margarida Chorona';
-      cliente.cpf = '23456789130';
-      return cliente;
+  getClientes(): Observable<Cliente[]>{
+    return this.http.get<Cliente[]>('http://localhost:8080/api/clientes');
   }
+
 }

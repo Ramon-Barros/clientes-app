@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Cliente } from '../cliente';
 import { ClientesService } from '../../clientes.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,17 +13,33 @@ import { ClientesService } from '../../clientes.service';
 export class ClientesFormComponent implements OnInit {
 
   cliente: Cliente;
-  constructor( private service: ClientesService) {
+  success = false;
+  errors: any = null;
+
+  constructor(
+    private service: ClientesService,
+    private router: Router
+                ) {
     this.cliente = new Cliente();
 
   }
 
   ngOnInit(): void {
   }
+  voltarParaListagem(){
+    this.router.navigate(['/clientes-lista']);
+  }
   onSubmit(): void{
     this.service.salvar(this.cliente).subscribe( response => {
-      console.log(response);
-    });
+      this.success = true;
+      this.errors = null;
+      this.cliente = response;
+    }, errorREsponse => {
+      this.success = false;
+      this.errors = errorREsponse.error.errors;
+
+    }
+    );
   }
 
 }
