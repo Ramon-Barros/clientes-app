@@ -4,6 +4,20 @@
     </ol>
 
 <div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+                {{mensagemSucesso}}
+            </div>
+
+            <div class="alert alert-danger" role="alert" *ngIf="mensagemErro" >
+                {{mensagemErro}}
+            </div>
+
+        </div>
+    </div>
+
     <div class="row">
         <button class="btn btn-primary" (click)="novoCadastro()">
             <i class="fa fa-plus"></i> NOVO
@@ -31,12 +45,34 @@
                         <td>{{ cliente.dataCadastro }}</td>
                         <td>
                             <button class="btn btn-warning" routerLink="/clientes-form/{{cliente.id}}">
-                                <i class="fa fa-edit"></i>Editar
+                                <i class="fa fa-edit"></i> Editar
                             </button>
+
+                            <button class="btn btn-danger ml-2" (click)="preparaDelecao(cliente)" data-toggle="modal" data-target="#modalDelecao" >
+                                <i class="fa fa-trash"></i> Excluir
+                            </button>
+
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Deseja excluir Cliente(a):</h4>
+                </div>
+                <div class="modal-body" *ngIf="clienteSelecionado">
+                    {{clienteSelecionado.nome}}?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" (click)="deletarCliente()" data-dismiss="modal">Excluir</button>
+                    <button class="btn btn-outline-info" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
         </div>
     </div>
 
